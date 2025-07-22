@@ -8,16 +8,12 @@
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-    // Keep your other existing dependencies here, if you have any more.
-    // Example: "react-router-dom": "^6.24.1",
-    // Example: "bootstrap": "^5.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    // Keep your other existing scripts here, if you have any more.
   },
   "eslintConfig": {
     "extends": [
