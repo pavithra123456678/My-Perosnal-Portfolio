@@ -8,26 +8,26 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest # The type of virtual machine to run the job on
+    permissions:
+      contents: write # <--- ADD THIS LINE (crucial for fixing the 403 error)
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # Action to check out your repository code
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Use Node.js version 20 (or '22' if you prefer, matching your local)
+          node-version: '20'
 
       - name: Install dependencies
-        run: npm install # Install your project's dependencies
+        run: npm install
 
       - name: Build React app
-        run: npm run build # Run the build script defined in package.json
+        run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3 # Action specifically for deploying to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub's built-in token for actions
-          publish_dir: ./build # The directory to publish (your built React app)
-          # You can set this if your site is a Project Page and not a User/Organization Page
-          # cname: example.com # Uncomment and set your custom domain if you have one
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
