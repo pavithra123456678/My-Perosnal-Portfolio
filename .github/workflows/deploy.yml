@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+  name: Deploy to GitHub Pages
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 18
           cache: npm
-      - run: npm ci
+      - run: npm install
       - run: npm run build
         env:
           CI: false
